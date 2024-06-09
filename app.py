@@ -44,7 +44,7 @@ def run_model(inputs):
 df = load_data("model/Heart_disease_cleveland_new.csv")
 
 # Side bar
-st.subheader("Prencha abaixo os campos para saber o dianostico")
+st.subheader("Prencha abaixo os campos para saber o diagnóstico")
 
 with st.form('Formulario'):
     col1,col2 = st.columns(2)
