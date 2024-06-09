@@ -93,7 +93,7 @@ if submit:
     'ca': ca,
     'thal': thal,
    }
-    result.subheader(f"Resultado foi {'Positivo' if run_model(result_df) else 'Negativo'}")
+    result.subheader(f"Resultado foi {'Ausência de doença cardíaca.' if run_model(result_df) == 0 else 'Presença de doença cardíaca.'}")
    
 st.dataframe(df)
 # progress_bar = st.sidebar.progress()
