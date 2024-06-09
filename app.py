@@ -1,6 +1,8 @@
 import pandas as pd
 import streamlit as st
 import numpy as np
+import plotly.express as px
+import plotly.graph_objects as go
 from predict import predict, user_input1
 
 cp_df = {
@@ -44,7 +46,7 @@ def run_model(inputs):
 df = load_data("model/Heart_disease_cleveland_new.csv")
 
 # Side bar
-st.subheader("Prencha abaixo os campos para saber o diagnóstico")
+st.subheader("Prencha abaixo os campos para saber o dianostico")
 
 with st.form('Formulario'):
     col1,col2 = st.columns(2)
@@ -95,6 +97,20 @@ if submit:
    }
     result.subheader(f"Resultado foi {'Ausência de doença cardíaca.' if run_model(result_df) == 0 else 'Presença de doença cardíaca.'}")
    
-st.dataframe(df)
-# progress_bar = st.sidebar.progress()
-st.button("Rerun")
+# Visualização da distribuição das idades
+fig = px.histogram(df, x='age', nbins=20, title='Distribuição da Idade', marginal='box')
+st.plotly_chart(fig, use_container_width=True)
+
+# Matriz de correlação
+corr = df.corr()
+fig_corr = px.imshow(corr, text_auto=True, title='Matriz de Correlação')
+st.plotly_chart(fig_corr, use_container_width=True)
+
+# Gráfico de dispersão interativo
+fig_scatter = px.scatter(df, x='age', y='chol', color='target',
+                         title='Relação entre Idade e Colesterol colorido por Diagnóstico de Doença Cardíaca',
+                         labels={'target': 'Diagnóstico de Doença Cardíaca (0 = Não, 1 = Sim)'},
+                         hover_data=['trestbps', 'thalach', 'oldpeak'])
+
+fig_scatter.update_layout(legend_title_text='Doença Cardíaca')
+st.plotly_chart(fig_scatter, use_container_width=True)
