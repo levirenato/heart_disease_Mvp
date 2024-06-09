@@ -51,7 +51,11 @@ def run_model(inputs):
 
 df = load_data("model/Heart_disease_cleveland_new.csv")
 
-# Side bar
+st.markdown("""
+Este MVP foi construído baseado em um conjunto de dados de doenças cardíacas feita em Cleveland Clinic Foundation. Esse conjunto de dados é muito conhecido na comunidade científica, e por isso nos proporcia outros experiementos para comparar o real desempenho do nosso modelo. como resultado obtivemos um modelo com acuracia de 94% 
+
+Esse é um MVP para *auxílio* de diagnóstico de doenças cardíacas. Não deve ser usado por não profissionais da área médica, nem substituir um médico profissinal.
+            """)
 st.subheader("Prencha abaixo os campos para saber o diagnóstico")
 
 with st.form('Formulario'):
@@ -104,15 +108,18 @@ if submit:
     result.subheader(f"Resultado foi {'Ausência de doença cardíaca.' if run_model(result_df) == 0 else 'Presença de doença cardíaca.'}")
    
 # Visualização da distribuição das idades
+st.markdown("Este histograma mostra a distribuição da idade dos pacientes no dataset. A boxplot marginal ajuda a visualizar a dispersão e os outliers na distribuição da idade. Podemos observar que a maioria dos pacientes está na faixa etária entre 50 e 60 anos, o que pode indicar que doenças cardíacas são mais comuns nesta faixa etária.")
 fig = px.histogram(df, x='age', nbins=20, title='Distribuição da Idade', marginal='box')
 st.plotly_chart(fig, use_container_width=True)
 
 # Matriz de correlação
+st.markdown("A matriz de correlação mostra a relação entre todas as variáveis do dataset. Cores mais escuras representam correlações mais fortes (positivas ou negativas). Observamos que a variável thalach (frequência cardíaca máxima) tem uma correlação negativa moderada com a presença de doença cardíaca (num), enquanto oldpeak (depressão do ST) tem uma correlação positiva moderada com a doença cardíaca. Isso sugere que pacientes com frequência cardíaca máxima menor e maior depressão do ST têm maior probabilidade de ter doença cardíaca.")
 corr = df.corr()
 fig_corr = px.imshow(corr, text_auto=True, title='Matriz de Correlação')
 st.plotly_chart(fig_corr, use_container_width=True)
 
 # Gráfico de dispersão interativo
+st.markdown("Neste gráfico de dispersão interativo mostra a relação entre idade e colesterol, com pontos coloridos pela presença de doença cardíaca (num). Pacientes com doença cardíaca (indicados pela cor) tendem a ter níveis de colesterol mais elevados e podem ser encontrados em várias faixas etárias. No entanto, não há uma clara distinção de idade e colesterol para a presença de doença cardíaca, indicando que outros fatores também podem influenciar a condição.")
 fig_scatter = px.scatter(df, x='age', y='chol', color='target',
                          title='Relação entre Idade e Colesterol colorido por Diagnóstico de Doença Cardíaca',
                          labels={'target': 'Diagnóstico de Doença Cardíaca (0 = Não, 1 = Sim)'},
