@@ -5,6 +5,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from predict import predict, user_input1
 
+# Data
 cp_df = {
     1:'Angina típica',
     2:'Angina atípica',
@@ -31,6 +32,11 @@ thal_df = {
     7:'Defeito reversível'
 }
 
+# config
+st.set_page_config(
+        page_title="Predição de doenças cardíacas",
+        page_icon="🫀"
+)
 # caching dataframe
 @st.cache_data  # 👈 Add the caching decorator
 def load_data(url):
@@ -114,3 +120,4 @@ fig_scatter = px.scatter(df, x='age', y='chol', color='target',
 
 fig_scatter.update_layout(legend_title_text='Doença Cardíaca')
 st.plotly_chart(fig_scatter, use_container_width=True)
+
