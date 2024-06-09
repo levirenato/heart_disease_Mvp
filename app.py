@@ -75,7 +75,7 @@ with st.form('Formulario'):
                          key='thal')
         
     submit = st.form_submit_button('Descubra')
-
+    result = st.subheader('')
 
 if submit:
     result_df ={
@@ -93,8 +93,8 @@ if submit:
     'ca': ca,
     'thal': thal,
    }
-    st.title(run_model(result_df))
-
+    result.subheader(f"Resultado foi {'Positivo' if run_model(result_df) else 'Negativo'}")
+   
 st.dataframe(df)
 # progress_bar = st.sidebar.progress()
 st.button("Rerun")
