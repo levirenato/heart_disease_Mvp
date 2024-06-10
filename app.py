@@ -38,13 +38,13 @@ st.set_page_config(
         page_icon="🫀"
 )
 # caching dataframe
-@st.cache_data  # 👈 Add the caching decorator
+#@st.cache_data  # 👈 Add the caching decorator
 def load_data(url):
     df = pd.read_csv(url)
     return df
 
 # cachingg model
-@st.cache_resource
+#@st.cache_resource
 def run_model(inputs):
     return predict(inputs)
 
