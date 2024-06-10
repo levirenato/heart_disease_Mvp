@@ -77,7 +77,7 @@ with st.form('Formulario'):
     with col2:
         thalach = st.number_input('Frequência cardíaca máxima',min_value=1,key='thalach')
         exang = st.checkbox('Angina induzida por exercício ?',value=0,key='exang')
-        oldpeak = st.number_input('Frequência cardíaca máxima',min_value=1.0,key='oldpeak')
+        oldpeak = st.number_input('Depressão do segmento ST induzida pelo exercício em relação ao repouso.',min_value=1.0,key='oldpeak')
         slope = st.radio('Inclinação do segmento ST de pico do exercício'
                          ,options=[1,2,3],format_func=lambda x: slope_df[x],
                          key='slope')
