@@ -1,64 +1,20 @@
-age: Idade do paciente em anos.
+MVP desenvolvido para o Congresso Norte Nordeste de Pesquisa e Inovação (CONNEPI), trabalho aprovado com nota 10.
 
-    Tipo: Numérico
+Este MVP foi construído baseado em um conjunto de dados de doenças cardíacas feita em Cleveland Clinic Foundation. Esse conjunto de dados é muito conhecido na comunidade científica, e por isso nos proporciona outros experimentos para comparar o real desempenho do nosso modelo. como resultado obtivemos um modelo com acurácia de 94%
 
-sex: Sexo do paciente.
+Esse é um MVP para auxílio no diagnóstico de doenças cardíacas. Não deve ser usado por não profissionais da área médica, nem substituir um médico profissional.
 
-    Tipo: Categórico binário (1 = masculino; 0 = feminino)
+consiste em um formulário para ser preenchido com os dados do paciente e um modelo vai retornar a ausência ou nao de doença cardíaca
 
-cp (chest pain type): Tipo de dor no peito.
+![image](https://github.com/levirenato/heart_disease_Mvp/assets/84652664/56bd7721-466d-4f5c-9680-20ac15e22a99)
 
-    Tipo: Categórico ordinal
-        Valor 1: angina típica
-        Valor 2: angina atípica
-        Valor 3: dor não anginosa
-        Valor 4: assintomático
+abaixo do mvp alguns gráficos que demonstram informações sobre a base de dados utilizada
 
-trestbps: Pressão arterial em repouso (em mm Hg na admissão no hospital).
+![image](https://github.com/levirenato/heart_disease_Mvp/assets/84652664/ef6c18bd-f7a4-4db9-8c4a-6b283f78bb3b)
 
-    Tipo: Numérico
+![image](https://github.com/levirenato/heart_disease_Mvp/assets/84652664/c9687b25-e974-4161-9267-2208bab58f87)
 
-chol: Colesterol sérico em mg/dl.
+![image](https://github.com/levirenato/heart_disease_Mvp/assets/84652664/48593321-9655-4633-a42f-81eba9ed964c)
 
-    Tipo: Numérico
 
-fbs: Glicemia de jejum > 120 mg/dl.
-
-    Tipo: Categórico binário (1 = verdadeiro; 0 = falso)
-
-restecg (resting electrocardiographic results): Resultados do eletrocardiograma em repouso.
-
-    Tipo: Categórico
-        Valor 0: normal
-        Valor 1: tendo anormalidade na onda ST-T (inversões de onda T e/ou elevação ou depressão de ST > 0.05 mV)
-        Valor 2: mostrando hipertrofia ventricular esquerda provável ou definitiva pelos critérios de Estes
-
-thalach: Frequência cardíaca máxima alcançada.
-
-    Tipo: Numérico
-
-exang: Angina induzida por exercício.
-
-    Tipo: Categórico binário (1 = sim; 0 = não)
-
-oldpeak: Depressão do segmento ST induzida pelo exercício em relação ao repouso.
-
-    Tipo: Numérico
-
-slope: Inclinação do segmento ST de pico do exercício.
-
-    Tipo: Categórico ordinal
-        Valor 1: inclinando-se para cima
-        Valor 2: plano
-        Valor 3: inclinando-se para baixo
-
-ca: Número de grandes vasos (0-3) coloridos por fluoroscopia.
-
-    Tipo: Numérico (discreto)
-
-thal: Resultados do teste de estresse nuclear.
-
-    Tipo: Categórico
-        Valor 3: normal
-        Valor 6: defeito fixo
-        Valor 7: defeito reversível
+Link para acessar o MVP: https://heartdiseasemvp-connepi.streamlit.app/
